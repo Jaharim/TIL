@@ -26,7 +26,7 @@
 
 <br/>
 
-- html:5 작성 후 tab key 입력
+- `html:5` 작성 후 tab key 입력
 
   - 출력
 
@@ -34,10 +34,10 @@
     <!DOCTYPE html>
     <html lang="en">
     <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
     </head>
     <body>
 
@@ -138,31 +138,7 @@
 
 <br/>
 
-- ' `*` ' 이용하기
-
-  - 입력 예
-
-    ```
-    header>div>ul>li*3
-    ```
-
-  - 결과
-
-    ```
-    <header>
-        <div>
-            <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-        </div>
-    </header>
-    ```
-
-<br/>
-
-- ' `()` ' 이용하기
+- ' `( )` ' 이용하기
 
   - 입력 예
 
@@ -196,7 +172,7 @@
 
 <br/>
 
-- ' `{}` ' 기호를 이용한다.
+- ' `{ }` ' 기호를 이용한다.
 
   - 입력 예
 
@@ -233,7 +209,7 @@
 
     ```
     <header>
-    <div id="head"></div>
+        <div id="head"></div>
     </header>
     ```
 
@@ -251,13 +227,13 @@
 
     ```
     <header>
-    <div class="head"></div>
+        <div class="head"></div>
     </header>
     ```
 
 <br/>
 
-- 같은 이름의 Class에 순서대로 숫자를 붙여 선언할 때는 ' `.` ',' `$` ',' `*` ' 기호를 이용한다.
+- 같은 이름의 Class에 순서대로 숫자를 붙여 선언할 때는 ' `.` ', ' `$` ', ' `*` ' 기호를 이용한다.
 
   - 입력 예
 
