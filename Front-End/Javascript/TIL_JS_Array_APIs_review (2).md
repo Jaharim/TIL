@@ -100,9 +100,11 @@ Javascript Array Challenge의 문제를 풀 때 사용했던 Array API들에 대
     * split(separator: string | RegExp, limit?: number): string[];
     ```
 
-  - separator ( Optional ) : 원본 문자열을 끊어야 할 부분을 나타내는 문자열을 나타냅니다. 실제 문자열이나 정규표현식을 받을 수 있습니다.  
-    　　　　　　　　　　문자열 유형의 separator가 두 글자 이상일 경우 그 부분 문자열 전체가 일치해야 끊어집니다. separator가 생략되거나  
-    　　　　　　　　　　 str에 등장하지 않을 경우, 반환되는 배열은 원본 문자열을 유일한 원소로 가집니다.  
+  - separator ( Optional ) : 원본 문자열을 끊어야 할 부분을 나타내는 문자열을 나타냅니다.  
+    　　　　　　　　　　실제 문자열이나 정규표현식을 받을 수 있습니다.  
+    　　　　　　　　　　문자열 유형의 separator가 두 글자 이상일 경우 그 부분 문자열 전체가 일치해야 끊어집니다.  
+    　　　　　　　　　　 separator가 생략되거나 str에 등장하지 않을 경우,  
+    　　　　　　　　　　반환되는 배열은 원본 문자열을 유일한 원소로 가집니다.  
     　　　　　　　　　　 separator가 빈 문자열일 경우 str의 각각의 문자가 배열의 원소 하나씩으로 변환됩니다.
 
   - limit ( Optional ) : 끊어진 문자열의 최대 개수를 나타내는 정수입니다.  
