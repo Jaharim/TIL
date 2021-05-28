@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cube Banner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="cube">
+            <img src="./imgs/facebook.png" alt="페이스북 아이콘 이미지">
+            <img src="./imgs/twitter.png" alt="트위터 아이콘 이미지">
+            <img src="./imgs/youtube.png" alt="유튜브 아이콘 이미지">
+            <img src="./imgs/instagram.png" alt="인스타그램 아이콘 이미지">
+        </div>
+    </div>
+    <script>
+        let deg=0;
+        setInterval(()=>{
+            deg = deg - 90;
+            document.querySelector(".cube").style.transform
+            = `rotateX(${deg}deg)`;
+        },1000)
+    </script>
+</body>
+</html>
