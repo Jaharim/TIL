@@ -10,6 +10,8 @@
 
     - #### [CSS](https://github.com/Jaharim/TIL/tree/master/Front-End/CSS)
     - #### [Javascript](https://github.com/Jaharim/TIL/tree/master/Front-End/Javascript)
+    - #### ~~React~~
+    - #### ~~Node~~
 
   - ### ~~Algorithm~~
   - ### ~~CS~~
