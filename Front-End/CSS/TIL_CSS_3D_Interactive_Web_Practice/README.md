@@ -19,7 +19,7 @@
 <br/>
 <br/>
 
-# CSS 3D - Interactive Practice
+# CSS 3D - Interactive Web Practice
 
 <br/>
 
