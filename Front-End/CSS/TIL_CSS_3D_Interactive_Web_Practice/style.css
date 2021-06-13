@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  min-height: 100%;
+  background-color: rgb(112, 117, 163);
+  justify-content: center;
+  align-items: center;
+  height: 5000px;
+}
+
+.outside {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  perspective: 1000px;
+}
+
+.container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  transform-style: preserve-3d;
+}
+
+.stage {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  transform-style: preserve-3d;
+  transform: translateZ(-500vw);
+}
+
+.contents {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.front {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: #333;
+  font-size: 25em;
+}
+
+.left-Wall {
+  width: 1000vw;
+  transform: rotateY(90deg) translateZ(-500vw);
+  background: #f8f8f8;
+}
+
+.right-Wall {
+  width: 1000vw;
+  transform: rotateY(90deg) translateZ(-400vw);
+  background: #f8f8f8;
+}
+
+.hello {
+  transform: translateZ(400vw);
+}
+
+.one {
+  transform: translateZ(200vw);
+}
+
+.two {
+  transform: translateZ(0vw);
+}
+
+.three {
+  transform: translateZ(-250vw);
+}
+
+.wall {
+  transform: translateZ(-500vw);
+}
