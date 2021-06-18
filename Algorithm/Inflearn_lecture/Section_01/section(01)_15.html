@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){  
+                let arr = [];
+                let answer ="";
+                if( s.length % 2 === 0){
+                    arr = s.split("");
+                    let _one = arr[Math.floor((s.length-1)/2)];
+                    let _two = arr[Math.floor((s.length-1)/2)+1];
+                    answer = `${_one}${_two}`;
+                } else {
+                    arr = s.split("");
+                    let _one = arr[Math.floor((s.length-1)/2)];
+                    answer = `${_one}`;
+                }
+                return answer;
+            }
+            console.log(solution("study"));
+        </script>
+    </body>
+</html>

@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){
+                let answer = "";
+                let sum = arr.filter(el=>el%2===1).reduce((prev,curr)=>prev+curr,0);
+                let min = Math.min(...arr.filter(el=>el%2===1));
+                answer = `${sum}\n${min}`;
+                return answer;
+            }
+            
+            arr=[12, 77, 38, 41, 53, 92, 85];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>

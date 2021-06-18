@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(a, b, c){
+                let arr = [];
+                arr.push(a,b,c);
+                let max = Math.max(...arr);
+                arr.splice(arr.indexOf(max),1);
+                let _a = arr[0];
+                let _b = arr[1];
+                max < _a + _b ? answer = "YES" : answer = "NO";
+                return answer;
+            }
+
+            console.log(solution(13, 33, 17));
+        </script>
+    </body>
+</html>

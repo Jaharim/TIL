@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            let b = 0;
+            let _arr2 = [];
+            function solution(arr){
+                for(let a = 0 ; a < arr.length ; a++){
+                    let _arr = arr.slice(0);
+                    _arr.splice(a,1);
+                    b = 0;
+                    while( b < _arr.length ){
+                        _arr2 = _arr.slice(0);
+                        _arr2.splice(b,1);
+                        let check = _arr2.reduce((prev,curr)=>prev+curr,0);
+                        if( check === 100){
+                            let answer = _arr2.join(" ");
+                            return answer;
+                        }
+                        b++;
+                    }
+                }
+                return answer;
+            }
+            
+            let arr=[20, 7, 23, 19, 10, 15, 25, 8, 13];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>

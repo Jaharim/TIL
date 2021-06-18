@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){         
+                let arr = s.split("");
+                let check = arr.filter(el=>el < "a");
+                answer = check.length;
+                return answer;
+            }
+
+            let str="KoreaTimeGood";
+            console.log(solution(str));
+        </script>
+    </body>
+</html>
