@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){         
+                let answer = "";
+                answer += `${arr[0]} `;
+                for(let a = 1; a < arr.length ; a++){
+                    if( arr[a] > arr[a-1]){
+                        answer += `${arr[a]} `;
+                    }
+                }
+                return answer;
+            }
+
+            let arr=[7, 3, 9, 5, 6, 12];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>
