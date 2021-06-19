@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){
+                let _str = s.toLowerCase();
+                let leng = s.length;
+                let answer = "YES";
+                let arrival = Math.floor(leng/2);
+                let count = 0;
+                
+                    for(let i = 0 ; i < arrival ; i++){
+                        if(_str[i] !== _str[leng-1-i]) return "NO";
+                    }
+                    
+                
+                return answer;
+            }
+            
+            let str="gooG";
+            console.log(solution(str));
+        </script>
+    </body>
+</html>
+
+
+
+
+

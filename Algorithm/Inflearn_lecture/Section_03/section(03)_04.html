@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s, t){
+                let answer="";
+                let tArr = [];
+                let newArr = [];
+                newArr = s.slice(0).split("");
+                let minusArr = [];
+
+                for(let x of newArr){
+                    if(x === t){
+                        tArr.push(newArr.indexOf(x));
+                        newArr.splice(newArr.indexOf(x),0,"#");
+                        newArr.splice(newArr.indexOf(x),1);
+                    }
+                }
+                for(let x of s){
+                    for(let a = 0; a < tArr.length ; a++){
+                        minusArr.push(Math.abs(s.indexOf(x)-tArr[a]));
+                    }
+                    answer+= `${Math.min(...minusArr).toString()} `;
+                    minusArr = [];
+                }
+                
+                return answer;
+            }
+            
+            let str="teachermode";
+            console.log(solution(str, 'e'));
+        </script>
+    </body>
+</html>

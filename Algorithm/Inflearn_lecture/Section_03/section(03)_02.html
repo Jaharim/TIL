@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){
+                let _str = s.toLowerCase().split("").filter(el=>el >="a" && el <= "z").join("");
+                let answer = "NO";
+                if(_str === _str.split("").reverse().join("")) return "YES";
+                return answer;
+            }
+            
+            let str="found7, time: study; Yduts; emit, 7Dnuof";
+            console.log(solution(str));
+        </script>
+    </body>
+</html>
