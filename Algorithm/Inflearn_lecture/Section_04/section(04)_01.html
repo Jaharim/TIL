@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function sum(num){
+                return num.toString().split("").map(el=>parseInt(el)).reduce((prev,curr)=>prev+curr,0);
+            }
+            function solution(n, arr){
+                let answer = 0;
+                let max = Number.MIN_SAFE_INTEGER;
+                let index = [];
+                let realMax = [];
+                for(let i = 0 ; i < n ; i++){
+                    if(sum(arr[i]) >= max ){
+                        max = sum(arr[i]);
+                        index.push(i);
+                    };
+                }
+                if(index.length === 1){
+                    answer = arr[index[0]];
+                } else {
+                    for(let j = 0 ; j < index.length ; j++){
+                        realMax.push(arr[index[j]]);
+                    }
+                    answer = realMax.sort((a,b)=>b-a)[0];
+                }
+
+                return answer;
+            }
+            
+            let arr=[128, 460, 603, 40, 521, 137, 123];
+            console.log(solution(7, arr));
+        </script>
+    </body>
+</html>

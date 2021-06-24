@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function makeSosu(num){
+                return parseInt(num.toString().split("").reverse().join(""));
+            }
+            function solution(arr){
+                let answer=[];
+                let soSu = [];
+                let arr2 = [];
+                
+                for(let i = 0 ; i < arr.length ; i++){
+                    soSu.push(makeSosu(arr[i]));
+                }
+
+                for(let a = 0 ; a <= Math.max(...soSu) ; a++){
+                    arr2[a] = a;
+                }
+
+                for(let b = 2; b <= Math.max(...soSu) ; b++){
+                    if(arr2[b]===0) continue;
+                
+                    for(let c = b+b; c <= Math.max(...soSu); c+=b){
+                        arr2[c] = 0;
+                    }
+                }
+    
+                for(let d = 0; d <= soSu.length; d++){
+                    if(arr2[soSu[d]]!==0 && arr2[soSu[d]] > 1){
+                        answer.push(soSu[d]);
+                    }
+                }
+
+                return answer;
+            }
+            
+            let arr=[32, 55, 62, 20, 250, 370, 200, 30, 100];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>
+
