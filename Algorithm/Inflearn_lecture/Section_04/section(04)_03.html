@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(test){
+                let answer=0;
+                let n = arr[0].length;
+                let m = arr.length;
+                let coor = [];        
+                for(let i = 0; i < m ; i++){
+                    for(let j = 0; j < n-1 ; j++){
+                        for(let k = j+1; k < n; k++){
+                            coor.push(`${arr[i][j]} ${arr[i][k]}`);
+                        }
+                    }
+                }
+                
+                let count = 0;
+                let tempSet = new Set(coor);
+                let coorSet = [...tempSet];
+
+                for(let a = 0 ; a < coorSet.length ; a++){
+                    for(let b = 0 ; b < coor.length ; b++){
+                        if(coorSet[a] === coor[b]){
+                            count++;
+                        }
+                    }if(count === m){
+                        answer++;
+                    } count = 0;
+                }
+                return answer;
+            }
+            
+            let arr=[[3, 4, 1, 2], [4, 3, 2, 1], [3, 1, 4, 2]];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>
