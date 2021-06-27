@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(str1, str2){
+                let answer="NO"; 
+                let arr1 = str1.split("").sort();
+                let check1 = str1.split("");
+                let arrSet1 = new Set(arr1);
+                let arr2 = str2.split("").sort();
+                let check2 = str2.split("");
+                let arrSet2 = new Set(arr2);
+                arr1 = [...arrSet1];
+                arr2 = [...arrSet2];
+                let score1 = Array.from({length:arr1.length},()=>0);
+                let score2 = Array.from({length:arr2.length},()=>0);
+                
+
+                for(let i = 0; i < arr1.length; i++){
+                    for(let j = 0; j < check1.length; j++){
+                        if(arr1[i]===check1[j]){
+                            score1[i]++;
+                        }
+                    }
+                }
+
+                for(let i = 0; i < arr2.length; i++){
+                    for(let j = 0; j < check2.length; j++){
+                        if(arr2[i]===check2[j]){
+                            score2[i]++;
+                        }
+                    }
+                }
+                
+                if( arr1.join("") === arr2.join("") && score1.join("") === score2.join("") ){
+                    answer = "YES";
+                }
+                
+                return answer;
+            }
+            
+            let a="AbaAeCe";
+            let b="baeeACA";
+            console.log(solution(a, b));
+        </script>
+    </body>
+</html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(str1, str2){
+                let answer="YES"; 
+                let sH = new Map();
+                for(let x of str1){
+                    if(sH.has(x)) sH.set(x,sH.get(x)+1);
+                    else sH.set(x,1);
+                }
+                for(let x of str2){
+                    if(!sH.has(x) || sH.get(x) === 0) return "NO";
+                    sH.set(x,sH.get(x)-1);
+                }
+
+                return answer;
+            }
+            
+            let a="AbaAeCe";
+            let b="baeeACA";
+            console.log(solution(a, b));
+        </script>
+    </body>
+</html>
