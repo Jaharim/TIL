@@ -1,0 +1,111 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            
+            function solution(s, t){
+                let answer=0;
+                let n = t.length;
+                let arr2 = t.split("").sort();
+                let check2 = t.split("");
+                let arrSet2 = new Set(arr2);
+                arr2 = [...arrSet2];
+                let score2 = Array.from({length:arr2.length},()=>0);
+
+                for(let i = 0; i < arr2.length; i++){
+                    for(let j = 0; j < check2.length; j++){
+                        if(arr2[i]===check2[j]){
+                            score2[i]++;
+                        }
+                    }
+                }
+                
+                let check1 = s.split("");
+                for(let i = 0 ; i <= check1.length - n ; i++){
+                    let count = 0;
+                    let tmp = i;
+                    let str = "";
+                    while(count<n){
+                        str += check1[tmp];
+                        count++;
+                        tmp++;
+                    }
+                    
+                    let arr1 = str.split("").sort();
+                    let checkBB = str.split("");
+                    let arrSet1 = new Set(arr1);
+                    arr1 = [...arrSet1];
+                    let score1 = Array.from({length:arr1.length},()=>0);
+
+                    for(let i = 0; i < arr1.length; i++){
+                        for(let j = 0; j < checkBB.length; j++){
+                            if(arr1[i]===checkBB[j]){
+                                score1[i]++;
+                            }
+                        }
+                    }
+
+                    if( arr1.join("") === arr2.join("") && score1.join("") === score2.join("") ){
+                        answer++;
+                    }
+
+                }
+
+                return answer;
+            }
+            
+            let a="bacaAacba";
+            let b="abc";
+            console.log(solution(a, b));
+        </script>
+    </body>
+</html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function compareMaps(map1, map2){
+                if(map1.size!==map2.size) return false;
+                for(let [key, val] of map1){
+                    if(!map2.has(key) || map2.get(key)!==val) return false;
+                }
+            }
+            function solution(s, t){
+                let answer=0;
+                let tH = new Map();
+                let sH = new Map();
+                for(let x of t){
+                    if(tH.has(x)) tH.set(x, tH.get(x)+1);
+                    else tH.set(x, 1);
+                }
+                let len = t.length-1;
+                for(let i = 0; i < len; i++){
+                    if(sH.has(s[i])) sH.set(s[i], sH.get(s[i])+1);
+                    else sH.set(s[i], 1);
+                }
+                let lt = 0;
+                for(let rt = len; rt < s.length; rt++){
+                    if(sH.has(s[rt])) sH.set(s[rt], sH.get(s[rt])+1);
+                    else sH.set(s[rt], 1);
+                    if(compareMaps(sH, tH)) answer++;
+                    sH.set(s[lt], sH.get(s[lt]-1));
+                    if(sH.get(s[lt])===0) sH.delete(s[lt]);
+                    lt++;
+                }
+
+                return answer;
+            }
+            
+            let a="bacaAacba";
+            let b="abc";
+            console.log(solution(a, b));
+        </script>
+    </body>
+</html>
