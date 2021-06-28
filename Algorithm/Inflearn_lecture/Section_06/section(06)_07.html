@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(need, plan){
+                let answer="YES";
+                let queue=need.split('');
+                for(let x of plan){
+                    if(queue[0]===x) queue.shift();
+                }
+                if(queue.length !== 0) answer = "NO";
+                return answer;
+            }
+
+            let a="CBA";
+            let b="CBDAGE";
+            console.log(solution(a, b));
+        </script>
+    </body>
+</html>

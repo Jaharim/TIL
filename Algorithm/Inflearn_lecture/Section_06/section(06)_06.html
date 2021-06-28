@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(n, k){
+                let answer;
+                let queue=Array.from({length:n}, (v, i)=>i+1); 
+                let count = k;
+                let check = 0;
+
+                while(queue.length >= k){
+                    for(let i = 0 ; i < queue.length ; i++){
+                        count = k ;
+                        if(i===count-1){
+                            queue.splice(count-1,1);
+                            while(count>1){
+                                queue.push(queue.shift());
+                                count--;
+                            }
+                            break;
+                        }
+                    }
+                }
+                
+                if(queue.length < k) {
+                    while(queue.length > 1){
+                        for(let i = 0 ; i < queue.length; i++){
+                            if(check===k-1) {
+                                queue.splice(i,1);
+                                check = 0;
+                            }
+                            check++;
+                        }
+                    }
+                }
+                
+                answer = queue[0];                
+                return answer;
+            }
+            
+            console.log(solution(8, 3));
+        </script>
+    </body>
+</html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(n, k){
+                let answer;
+                let queue=Array.from({length:n}, (v, i)=>i+1); 
+                while(queue.length){
+                    for(let i = 1 ; i < k ; i++) queue.push(queue.shift());
+                    queue.shift();
+                    if(queue.length===1) answer = queue.shift();
+                }
+                
+                return answer;
+            }
+            
+            console.log(solution(8, 3));
+        </script>
+    </body>
+</html>
