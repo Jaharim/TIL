@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){
+                let answer="YES";
+                let stack = [];
+                let sH = new Map();
+                for(let x of s){
+                    stack.push(x);
+                }
+                if(stack[stack.length-1]==="(") answer = "NO";
+                while(stack.length>0){
+                    x = stack.pop();
+                    if(sH.has(x)) sH.set(x, sH.get(x)+1);
+                    else sH.set(x, 1);
+                }
+                if(sH.get("(")!==sH.get(")")) answer = "NO";
+                return answer;
+            }
+            
+            let a="(()(()))(()";
+            console.log(solution(a));
+        </script>
+    </body>
+</html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){
+                let answer="YES";
+                let stack = [];
+                for(let x of s){
+                    if(x==="(") stack.push(x);
+                    else{
+                        if(stack.length===0) return "NO";
+                        stack.pop();
+                    }
+                }
+                if(stack.length>0) return "NO";
+                return answer;
+            }
+            
+            let a="(()(()))(()";
+            console.log(solution(a));
+        </script>
+    </body>
+</html>
