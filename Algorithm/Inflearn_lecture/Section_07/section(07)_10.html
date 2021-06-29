@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(target, arr){
+                let answer;
+                let start = 0;
+                let end = arr.length;
+                let i = Math.floor(arr.length/2);
+
+                arr.sort((a,b)=>a-b);
+                
+                while(arr[i]!==target){
+                    if(arr[i]>target){
+                        end = i;
+                        i = Math.floor((start+end)/2);
+                    } else {
+                        start = i;
+                        i = Math.floor((start+end)/2);
+                    }
+                }
+                answer = i+1;
+                
+                return answer;
+            }
+            
+            // sorted arr => 12 23 32 57 65 81 87 99
+            let arr=[23, 87, 65, 12, 57, 32, 99, 81];
+            console.log(solution(32, arr));
+        </script>
+    </body>
+</html>
