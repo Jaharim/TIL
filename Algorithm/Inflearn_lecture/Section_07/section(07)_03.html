@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){
+                let answer=arr;
+                let index = 0;
+                for(let i = 0 ; i < arr.length ; i++){
+                    if(arr[i] < 0){
+                        let temp = arr.splice(i,1)[0];
+                        arr.splice(index,-1,temp);
+                        index++;
+                    }
+                }
+                return answer;
+            }
+
+            let arr=[1, 2, 3, -3, -2, 5, 6, -6];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>

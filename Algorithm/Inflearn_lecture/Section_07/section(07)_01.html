@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){
+                let answer=arr;
+                for(let i = 0; i < arr.length-1 ; i++){
+                    let min = arr[i];
+                    let index = 0;
+                    for(let j = i+1; j < arr.length; j++){
+                        if(arr[j]<min) {
+                            min = arr[j];
+                            index = j;
+                        }
+                    }
+                    if(arr[i]!==min){
+                        let temp = arr[i];
+                        arr[i] = min;
+                        arr[index] = temp;                        
+                    }
+                }
+                return answer;
+            }
+
+            let arr=[13, 5, 11, 7, 23, 15];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>
