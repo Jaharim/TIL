@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            /* 전위순회 출력
+            function solution(n){
+                let answer="";
+                function DFS(v){
+                    if(v<8){
+                        answer+=`${v} `;
+                        let front = 2*v;
+                        let back = 2*v+1;
+                        DFS(front);
+                        DFS(back);
+                    }
+                }
+                DFS(n);
+                return answer;
+            }
+            */
+
+           /* 중위순회 출력
+            function solution(n){
+                let answer="";
+                function DFS(v){
+                    if(v<8){
+                        let front = 2*v;
+                        let back = 2*v+1;
+                        DFS(front);
+                        answer+=`${v} `;
+                        DFS(back);
+                    }
+                }
+                DFS(n);
+                return answer;
+            }*/
+
+            // 후위순회 출력
+            function solution(n){
+                let answer="";
+                function DFS(v){
+                    if(v<8){
+                        let front = 2*v;
+                        let back = 2*v+1;
+                        DFS(front);
+                        DFS(back);
+                        answer+=`${v} `;
+                    }
+                }
+                DFS(n);
+                return answer;
+            }
+
+            console.log(solution(1));
+        </script>
+    </body>
+</html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(n){
+                let answer="";
+                function DFS(v){
+                    if(v>7) return;
+                    else {
+                        console.log(v);
+                        DFS(v*2);
+                        DFS(v*2+1);
+                    }
+                }
+                DFS(n);
+                return answer;
+            }
+            
+            console.log(solution(1));
+        </script>
+    </body>
+</html>
