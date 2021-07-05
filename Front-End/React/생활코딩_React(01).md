@@ -115,9 +115,35 @@
 <br/>
 
 - **key**
+
   - 여러개의 목록을 자동으로 생성할때는  
     각각의 목록을 다른것들과 구별할 수 있는 식별자를 적어줘야한다.  
-     리액트 내부적 필요로 인해 요청되는 것.
+    리액트 내부적 필요로 인해 요청되는 것.
+
+    ```javascript
+    class Navigator extends Component {
+      render() {
+        let lists = [];
+        let data = this.props.data;
+        let i = 0;
+        while (i < data.length) {
+          lists.push(
+            <li key={data[i].id}>
+              <a href={`/content/${data[i].id}`}>{`${data[i].title}`}</a>
+            </li>
+          );
+          i = i + 1;
+        }
+        return (
+          <nav>
+            <ul>{lists}</ul>
+          </nav>
+        );
+      }
+    }
+
+    export default Navigator;
+    ```
 
 <br/>
 <br/>
