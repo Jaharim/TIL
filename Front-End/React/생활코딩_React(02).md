@@ -4,6 +4,7 @@
 ## 생활코딩 React (02)
 
 <br/>
+<br/>
 
 - Component 안에서의 props 는 **read only** 이다.
 
@@ -85,6 +86,51 @@
    그 다음 컴포넌트에서 event가 발생되었을때  
    props로 전달된 onChangePage 라는 함수를 호출하도록 코드를 작성하면 된다.
 
+  ```javascript
+  // main
+  class App extends Component {
+    constructor(props) {
+      super(props); // 여기까지가 초기화
+      this.state = {
+        mode: "read",
+      };
+    }
+    render() {
+      return (
+        <div className="App">
+          <Subject
+            onChangePage={function () {
+              this.setState({ mode: "welcome" });
+            }.bind(this)}
+          ></Subject>
+        </div>
+      );
+    } // 컴포넌트에 onChangePage 라는 props를 만들고 그 속에 함수를 작성
+  }
+
+  // Subject component
+  class Subject extends Component {
+    render() {
+      return (
+        <header>
+          <h1>
+            <a
+              href="/"
+              onClick={function (e) {
+                e.preventDefault();
+                this.props.onChangePage();
+              }.bind(this)}
+            >
+              {this.props.title}
+            </a>
+          </h1>
+          {this.props.sub}
+        </header>
+      );
+    }
+  } // 컴포넌트에서 event가 발생되었을때 props로 전달된 onChangePage 라는 함수를 호출하도록 코드
+  ```
+
 <br/>
 
 - bind의 두번 째 인자로 들어온 값을 함수의 첫번째 매개변수 값으로 넣어준다.  
@@ -100,9 +146,9 @@
 - 상위->하위 컴포넌트로 값을 전달할 때는 props 로 전달  
   하위->상위 컴포넌트의 값을 바꾸고싶다 이벤트를 통해서 한다.
 
-<br/>
+  **redux** : 하나의 data 저장소에 값들이 저장되어있어서 redux의 값이 바뀌면 그와 관련된 모든 값이 바뀐다.<br/>
 
-- **redux** : 하나의 data 저장소에 값들이 저장되어있어서 redux의 값이 바뀌면 그와 관련된 모든 값이 바뀐다.
+  <img src="https://user-images.githubusercontent.com/83650872/124623567-0f2e3500-deb7-11eb-9deb-6a903d60a272.png" width="500"/>
 
 <br/>
 <br/>
