@@ -1,79 +1,37 @@
-class Stack {
-  constructor() {
-    this.data = [];
-    this.top = 0;
-  }
+const readLine = require("readline");
 
-  push(element) {
-    this.data[this.top] = element;
-    this.top += 1;
-  }
+const rl = readLine.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
 
-  length() {
-    return this.top;
-  }
-
-  peek() {
-    return this.data[this.top - 1];
-  }
-
-  isEmpty() {
-    return this.top === 0;
-  }
-
-  pop() {
-    if (this.isEmpty() === false) {
-      this.top = this.top - 1;
-      return this.data.splice(-1)[0];
-    }
-  }
-
-  print() {
-    this.data.map((element) => {
-      console.log(element);
-    });
-  }
-
-  reverse() {
-    this._reverse(0);
-  }
-
-  _reverse(index) {
-    if (index < this.top - 1) {
-      this._reverse(index + 1);
-    }
-    console.log(this.data[index]);
-  }
-}
-
+let input = [];
+let stack = [];
+let round = 0;
 let answer = "";
 
-let solution = (inputLines) => {
-  let N = inputLines.splice(0, 1)[0];
-  let cnt = 0;
-  let stack = new Stack();
-  for (let i = 0; i < N; i++) {
-    cur = +inputLines[i];
-    while (cur > cnt) {
-      stack.push(++cnt);
-      answer += "+\n";
+rl.on("line", function (line) {
+  input.push(line);
+}).on("close", function () {
+  round = 2 * Number(input.shift());
+  input = input.map((el) => parseInt(el));
+  let i = 0;
+  let num = 0;
+  while (input.length > 0 && num <= round) {
+    if (input[0] !== stack[stack.length - 1]) {
+      i++;
+      stack.push(i);
+      answer += `+\n`;
+    } else {
+      input.shift();
+      stack.pop();
+      answer += `-\n`;
     }
-
-    if (stack.pop() !== cur) {
-      return "NO";
-    }
-
-    answer += "-\n";
+    num++;
   }
 
-  return answer;
-};
+  if (num === round) console.log(answer);
+  else console.log("NO");
 
-(function () {
-  let inputLines = require("fs")
-    .readFileSync("/dev/stdin")
-    .toString()
-    .split("\n");
-
-  console.log(solution(inputLines));
-})();
+  process.exit();
+});
